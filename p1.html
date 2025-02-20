@@ -6,27 +6,108 @@
     <title>My First HTML Page</title>  
 </head>
 <body>
-    <h1>Hello, World!</h1>  
-    <p>This is my first HTML page.</p>
 
-    <br>
-    <h5>Ayush</h5>
-    <h6>Below is hr tag</h6>
-    <hr>
-    <p>This is a paragraph. I am writing something to fill up here.</p>
+    <header>
+        <h1>Welcome to My First HTML Page</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div style="display: flex;">
-        <div style="width: 50%; border: 1px solid black; padding: 10px;">Div 1</div>
-        <div style="width: 50%; border: 1px solid black; padding: 10px;"><p>Div 2</p></div>
-    </div>
+    <section>
+        <article>
+            <h2>Introduction</h2>
+            <p>This is my first HTML page. Below are various HTML tags demonstrated.</p>
+        </article>
 
-    <center><strong>hii i am strong</strong>
-        <br>
-    <em>hii im Em </em>
-    </center>
-    <div><span>i am span and i take full line space</span>
-    <span>i am also span and i am also inline element </span>
-<div></div><div></div></div>
+        <article>
+            <h5>Ayush</h5>
+            <h6>Below is hr tag</h6>
+            <hr>
+            <p>This is a paragraph. I am writing something to fill up here.</p>
+        </article>
+
+        <div style="display: flex;">
+            <div style="width: 50%; border: 1px solid black; padding: 10px;">Div 1</div>
+            <div style="width: 50%; border: 1px solid black; padding: 10px;"><p>Div 2</p></div>
+        </div>
+
+        <center>
+            <strong>Hi, I am strong</strong>
+            <br>
+            <em>Hi, I'm emphasized text</em>
+        </center>
+
+        <div>
+            <span>I am span and I take full line space</span>
+            <span>I am also a span, but I am inline</span>
+        </div>
+
+        <aside>
+            <p>This is an aside section for additional information.</p>
+        </aside>
+    </section>
+
+    <section>
+        <h3>Media Elements</h3>
+    
+        <!-- Image -->
+        <img src="assets/me.png" alt="Sample Image" style="width: 20%;">
+    
+        <!-- Audio -->
+        <audio controls>
+            <source src="assets/sweety_pie.mp3" type="audio/mp3">
+            Oops! Your browser doesn't support audio.
+        </audio>
+    
+        <!-- Video (YouTube links don’t work in <video>, using embed instead) -->
+        <iframe width="320" height="240" 
+            src="https://www.youtube.com/embed/UB1O30fR-EE" 
+            allowfullscreen>
+        </iframe>
+    
+        <!-- Canvas -->
+
+    </section>
+    
+
+    <section>
+        <h3>Interactive Elements</h3>
+
+        <label for="browser">Choose a browser:</label>
+        <input list="browsers" id="browser" name="browser">
+        <datalist id="browsers">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+            <option value="Edge">
+        </datalist>
+
+        <details>
+            <summary>Click to expand details</summary>
+            <p>This is hidden content that appears when clicked.</p>
+        </details>
+
+        <embed src="assets/FE_Startup (1) 4 1 1.pdf" width="200" height="100" />
+
+        <search>
+            <input type="text" placeholder="Search...">
+            <button>Go</button>
+        </search>
+
+        <p>Calculated Output: <output id="result">10</output></p>
+
+        <label for="progress">Task Progress:</label>
+        <progress id="progress" value="70" max="100"></progress>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My First HTML Page. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
