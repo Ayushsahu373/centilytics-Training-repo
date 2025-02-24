@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete HTML Example with Layout, Forms, ID, Classes, Meta Tags">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Forms, Layout">
+    <meta name="author" content="Your Name">
+    <title>Complete HTML Example</title>
+    
+    <style>
+        /* Layout 
+        
+        "*" is universal selector 
+        "#" is id 
+        "." is class
+        
+        */
+        * {             
+            
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        #header {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .layout {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .box {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid black;
+            text-align: center;
+            background: #f1f1f1;
+        }
+
+        /* ID & Class */
+        .highlight {
+            color: green;
+            font-weight: bold;
+        }
+
+        #unique-text {
+            color: blue;
+            font-weight: bold;
+        }
+
+        /* Form */
+        form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #rad{
+            margin: 10px;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">Complete HTML Example</header>
+
+    <!-- Navigation -->
+    <nav class="container">
+        <a href="#">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Layout -->
+    <section class="container layout">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+    </section>
+
+    <!-- ID and Class Example -->
+    <section class="container">
+        <h2 class="highlight">This is a highlighted heading</h2>
+        <p class="highlight">This paragraph uses a class for styling.</p>
+        <p id="unique-text">This paragraph has a unique ID.</p>
+    </section>
+
+    <!-- Form -->
+    <section class="container">
+        <h2>Contact Form</h2>
+        <form action="" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="gender">Gender:</label>
+            <input id="rad" type="radio" name="gender" value="male"> Male
+            <input id="rad" type="radio" name="gender" value="female"> Female
+
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+
+            <button type="submit" onclick="fun()">Submit</button>
+        </form>
+    </section>
+
+    <!-- JavaScript  alert box-->
+    <script>
+        function fun(){
+                alert("you submitted")
+        }
+    </script>
+
+</body>
+</html>
