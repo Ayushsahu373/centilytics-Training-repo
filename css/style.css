@@ -51,12 +51,17 @@ h1{
     color: white;
     text-align: center;
     align-items: center;
+    border: 4px dashed;
 }
 #cenBox{
     background-color: white;
-    border: 10px;
+    border: 10px ridge;
+
     padding: 10px;
     border-radius: 10px;
     border-color: black;
     gap: 50px;
+    border-bottom: 6px inset green;
+    border-top: 5px outset palegoldenrod;
+    border-left: 2px dotted;
 }
