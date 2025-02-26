@@ -1,0 +1,205 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+.container{
+    display: flex;
+    flex-direction:row;
+    width: 100%;
+    height: 100vh;
+}
+.left-side{
+    width: 10%;
+}
+.right-side{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.navbar{
+    height: 100vh;
+    align-items: center;
+    width: 9.6em;
+    background-color: rgb(0, 86, 153);
+    flex-direction: column;
+    display: flex;
+    position: fixed;
+    
+
+}
+.navbar img{
+    width: 100%;
+}
+.button{
+    text-transform: uppercase;
+    border-radius: .4em;
+    height: 2.4em;
+    width:6.9em;
+    background-color: rgb(255, 63, 63);
+    font-size: medium;
+    color: white;
+    border: none;
+    align-self: center;
+    margin: .8em 0;
+}
+.button2{
+    text-transform: uppercase;
+    border-radius: .4em;
+    height: 2.4em;
+    padding:  1em;
+    background-color: rgb(255, 63, 63);
+    font-size: medium;
+    color: white;
+    border: none;
+    align-self:center;
+   margin-left: 26.5em;
+   display: flex;
+   align-items: center;
+   font-size: .8em;
+   
+   
+}
+.button2 img{
+height: 1em;
+}
+.button:hover{
+    background-color:red;
+}
+.button2:hover{
+    background-color:rgb(0, 86, 153);
+   
+}
+#nav-list {
+    color: white;
+    list-style: none;
+    line-height: 2.5em;
+    font-size: .8em;
+    width: 100%;
+    position: relative;
+    padding-left: 0;
+    
+}
+
+#nav-list li {
+    color: rgba(255, 255, 255, 0.349);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    position: relative;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+   
+}
+
+#nav-list li::before {
+    content: "";
+    display: inline-block;
+    width: 1em; 
+    height: 1em; 
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#nav-list li:nth-child(1)::before {
+    background-image: url(../assets/cricket-ball.png);
+}
+
+#nav-list li:nth-child(2)::before {
+    background-image: url(../assets/england-crick-team-logo.png);
+}
+
+#nav-list li:nth-child(3)::before {
+    background-image: url(../assets/cricket-hat.png);
+}
+
+#nav-list li:nth-child(4)::before {
+    background-image: url(../assets/wicket-with-bat.png);
+}
+#nav-list li:nth-child(5)::before {
+    background-image: url(../assets/group-people.png);
+}
+#nav-list li:nth-child(6)::before {
+    background-image: url(../assets/line-play.png);
+}
+
+#nav-list li:hover {
+    background-color: rgb(2, 73, 128);
+}
+
+.topbar{
+    width: 100%;
+    height: 5em;
+    background-color:rgb(0, 62, 108);
+    display: flex;
+    flex-direction: row;
+   
+    
+   
+}
+.topbar-items{
+    margin: 1em;
+    padding-right:10em;
+    border-right: .2px solid rgba(255, 255, 255, 0.509);
+    line-height: 1.5em;
+}
+ .topbar #toptext{
+    color: rgba(255, 255, 255, 0.724);
+    font-size: .7em;
+    
+}
+.topbar #bottomtext{
+    color: white;
+}
+.topbar-items2{
+    margin: 1em;
+    padding-right:10em;
+    border-right: .2px solid rgba(255, 255, 255, 0.712);
+    line-height: 1.5em;
+    color: white;
+    font-weight: bold;
+    
+}
+.main-content{
+    height: 100%;
+    background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,5)), url(../assets/england-test_match.png) no-repeat;
+}
+.main-content-top{
+    color: blue;
+    font-size: 1.5em;
+    font-weight: bold;
+    align-items: left;
+    padding-left: 2em;
+    position: absolute;
+    align-content:start;
+    top: 50%;
+}
+.main-content-top h1{
+    width: 60%;
+    color: white;
+    font-size: 1.7em;
+}
+.main-content-top h1:hover{
+    text-decoration: underline;
+}
+.main-content-top p{
+    color: rgb(82, 82, 236);
+    font-size:small;
+   
+    position: absolute;
+}
+.main-content-top button{
+    
+    background-color: rgb(255, 63, 63);
+    font-size: medium;
+    color: white;
+    border: none;
+    align-self:flex-start;
+    margin: 2em 2em 2em 0em;
+    
+}
