@@ -31,11 +31,14 @@
 
 .block2{
     border: solid black 20px;
-    width: 30%;
     padding: 200px;
     border-radius: 10px;
     position:initial;
-   
+    background-image: url(../assets/me.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
 }
 .block2 h1{
     color:black;
@@ -45,4 +48,17 @@
     position: fixed;
     top : 500px;
     left: 300px;
+
 }
+.listz {
+    list-style: circle;
+    line-height: 50px;
+}
+
+.listz li:first-child { 
+    background: red;
+}
+.listz li:last-child {  
+    background: yellow;
+}
+
