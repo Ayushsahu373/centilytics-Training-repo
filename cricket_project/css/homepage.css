@@ -139,8 +139,6 @@ height: 1em;
     display: flex;
     flex-direction: row;
    
-    
-   
 }
 .topbar-items{
     margin: 1em;
@@ -166,9 +164,10 @@ height: 1em;
     
 }
 .main-content{
-    height: 100%;
-    background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,5)), url(../assets/england-test_match.png) no-repeat;
-}
+    height: 120%;
+    background:linear-gradient(rgba(0,0,0,0), rgba(1, 20, 40,5)), url(../assets/england-test_match.png) no-repeat;
+    background-size: cover;
+    }
 .main-content-top{
     color: blue;
     font-size: 1.5em;
@@ -202,4 +201,65 @@ height: 1em;
     align-self:flex-start;
     margin: 2em 2em 2em 0em;
     
+}.card-section {
+    background-color: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,5));
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40%;
+    height:20em;
+    padding: 20px;
+}
+
+.card1,.card2,.card3 {
+    width: 100%;
+   background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+   margin: 1em;
+    height: 19em; 
+    display: flex;
+    /* align-items: flex-end; */
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 12em;
+    
+}
+.card1{
+    width: 170%;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0), rgb(0, 47, 82)), url(../assets/card-1.png);
+    
+}
+.card2{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0), rgb(0, 47, 82)), url(../assets/card-2.png);
+}
+.card3{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0), rgb(0, 47, 82)), url(../assets/card-3.png);
+    
+}
+
+.card1 a,.card2 a,.card3 a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: block;
+}
+
+.card1 p,.card2 p,.card3 p {
+    color: white;
+    text-decoration: none;
+    font-size: .6em;
+    font-weight: bold;
+    display: block;
+}
+
+.card1 #date,.card2 p,.card3 p {
+    color:
+    text-decoration: none;
+    font-size: .6em;
+    font-weight: bold;
+    display: block;
 }
