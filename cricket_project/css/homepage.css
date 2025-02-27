@@ -209,7 +209,7 @@ height: 1em;
     justify-content: space-around;
     align-items: center;
     margin-top: 40%;
-    height:20em;
+    height:23em;
     padding: 20px;
 }
 
@@ -219,9 +219,8 @@ height: 1em;
     background-repeat: no-repeat;
     background-position: center;
    margin: 1em;
-    height: 19em; 
+    height: 21em; 
     display: flex;
-    /* align-items: flex-end; */
     flex-direction: column;
     padding: 10px;
     padding-top: 12em;
@@ -256,10 +255,24 @@ height: 1em;
     display: block;
 }
 
-.card1 #date,.card2 p,.card3 p {
-    color:
+.card1 #date,.card2  #date,.card3  #date {
+    padding-top:2em;
+    color: rgb(82, 82, 236);
     text-decoration: none;
     font-size: .6em;
     font-weight: bold;
-    display: block;
+}
+.play-button{
+    background-color: rgb(255, 63, 63);
+    font-size: medium;
+    color: white;
+    border: none;
+    align-self:flex-start;
+    
+    padding: 0px 1px;
+    height: 20px;
+}
+.play-button img{
+    
+    height:10px
 }
