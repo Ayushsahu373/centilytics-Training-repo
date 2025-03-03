@@ -36,10 +36,10 @@
 .button{
     text-transform: uppercase;
     border-radius: .4em;
-    height: 2.4em;
-    width:6.9em;
+    height: 3em;
+    width:9em;
     background-color: rgb(255, 63, 63);
-    font-size: medium;
+    font-size: small;
     color: white;
     border: none;
     align-self: center;
@@ -76,7 +76,7 @@ height: 1em;
     color: white;
     list-style: none;
     line-height: 2.5em;
-    font-size: .8em;
+    font-size: .78em;
     width: 100%;
     position: relative;
     padding-left: 0;
@@ -84,7 +84,7 @@ height: 1em;
 }
 
 #nav-list li {
-    color: rgba(255, 255, 255, 0.349);
+    color: rgba(255, 255, 255, 0.475);
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -164,21 +164,22 @@ height: 1em;
     
 }
 .main-content{
-    height: 120%;
+    height: 140%;
     background:linear-gradient(rgba(0,0,0,0), rgba(1, 20, 40,5)), url(../assets/england-test_match.png) no-repeat;
     background-size: cover;
     }
 .main-content-top{
     color: blue;
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: bold;
     align-items: left;
-    padding-left: 2em;
+    padding-left: 2.5em;
     position: absolute;
     align-content:start;
     top: 50%;
 }
 .main-content-top h1{
+    
     width: 60%;
     color: white;
     font-size: 1.7em;
@@ -187,9 +188,9 @@ height: 1em;
     text-decoration: underline;
 }
 .main-content-top p{
-    color: rgb(82, 82, 236);
+    color: rgb(48, 194, 234);
     font-size:small;
-   
+    font-weight: 100;
     position: absolute;
 }
 .main-content-top button{
@@ -199,11 +200,11 @@ height: 1em;
     color: white;
     border: none;
     align-self:flex-start;
-    margin: 2em 2em 2em 0em;
+    margin: 0em 2em 0em 0em;
     
 }.card-section {
     background-color: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,5));
-    
+    margin-left: 1.5em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -257,8 +258,8 @@ height: 1em;
 }
 
 .card1 #date,.card2  #date,.card3  #date {
-    padding-top:2em;
-    color: rgb(82, 82, 236);
+    padding-top:1em;
+    color: rgb(82, 197, 236);
     text-decoration: none;
     font-size: .6em;
     font-weight: bold;
@@ -276,4 +277,17 @@ height: 1em;
 .play-button img{
     
     height:10px
+}
+/* 
+.card1,.card2,.card3 :hover {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: block;
+} */
+ 
+.card-contents{
+    margin: 1em;
+  
 }
