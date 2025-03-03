@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb Project</title>
+    <script>
+        function Switch() {
+            var image = document.getElementById('bulb');
+            var text = document.querySelector('button').textContent;
+            if (text === "turn on") {
+                document.querySelector('button').textContent = "turn off";
+            } else {
+                document.querySelector('button').textContent = "turn on";
+            }
+            if (image.src.includes("offBulb.png")) {
+                image.src = "onBulb.png";
+            } else {
+                image.src = "offBulb.png";
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="Switch()">turn on</button>
+    <img id="bulb" src="offBulb.png" alt="Bulb Image">
+</body>
+</html>

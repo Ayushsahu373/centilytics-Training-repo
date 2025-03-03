@@ -71,5 +71,6 @@ const arrayLike = {
     1: "b",
     2: "c", // ignored by at() since length is 2
   };
+  console.log(arrayLike);
   console.log(Array.prototype.at.call(arrayLike, 0)); // "a"
   console.log(Array.prototype.at.call(arrayLike, 2)); // undefined
