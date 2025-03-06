@@ -20,5 +20,11 @@ for(m in arr){
 }
 
 for(m of arr){
-    console.log(m);
+    // console.log(m);
 }
+x=1;
+do{
+console.log("eat 5 star do nothing");
+x--;
+}
+while(x!=0)
