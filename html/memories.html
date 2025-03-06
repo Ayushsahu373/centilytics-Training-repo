@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Example</title>
+    <script src="../javascript/memories.js"></script>
+</head>
+<body>
+
+    <h2>Cookies, Local Storage, and Session Storage Example</h2>
+
+    <label>Enter Name: </label>
+    <input type="text" id="nameInput">
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+    <button onclick="deleteCookie()">Delete Cookie</button>
+    <p id="cookieOutput"></p>
+
+    <hr>
+
+    <button onclick="setLocalStorage()">Set Local Storage</button>
+    <button onclick="getLocalStorage()">Get Local Storage</button>
+    <button onclick="clearLocalStorage()">Clear Local Storage</button>
+    <p id="localStorageOutput"></p>
+
+    <hr>
+
+    <button onclick="setSessionStorage()">Set Session Storage</button>
+    <button onclick="getSessionStorage()">Get Session Storage</button>
+    <button onclick="clearSessionStorage()">Clear Session Storage</button>
+    <p id="sessionStorageOutput"></p>
+
+
+</body>
+</html>
