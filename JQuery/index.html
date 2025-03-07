@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Selectors Example</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <style>
+    .highlight { background-color: yellow; }
+  </style>
+</head>
+<body>
+
+<h1>Welcome to jQuery Selectors</h1>
+<p class="highlight">This is a paragraph with the "highlight" class.</p>
+<p>This is a regular paragraph.</p>
+<ul id="list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+  <li>Item 4</li>
+  <li>Item 5</li>
+</ul>
+
+<script>
+  // Select by ID
+  $('#list').css('font-family', 'Arial');  // Changes font of the entire list
+  
+  // Select by Class
+  $('.highlight').css('font-weight', 'bold');  // Makes text bold for highlighted paragraph
+  
+  // Select by Element
+  $('p').css('color', 'blue');  // All <p> elements will have blue text color
+
+  // Select by Descendant
+  $('#list li').css('color', 'green');  // Changes color of all <li> items inside #list
+
+  // Pseudo-classes
+  $('#list li:first').css('color', 'red');  // First item in the list will be red
+</script>
+
+</body>
+</html>
