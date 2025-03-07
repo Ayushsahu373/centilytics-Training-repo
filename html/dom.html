@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Mastery - Enhanced</title>
+    <style>
+        .highlight { color: red; font-weight: bold; }
+        .box { width: 100px; height: 100px; background-color: lightblue; margin-top: 10px; }
+        .container { margin-top: 20px; }
+        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+    </style>
+   
+</head>
+<body>
+
+    <h1 id="title">Hello, World!</h1>
+    <p class="text">This is a paragraph.</p>
+
+    <button id="changeTextBtn">Change Text</button>
+    <button id="addElementBtn">Add Element</button>
+    <button id="removeElementBtn">Remove Element</button>
+    <button id="changeStyleBtn">Change Style</button>
+    <button id="toggleClassBtn">Toggle Class</button>
+    <button id="randomColorBtn">Random Box Color</button>
+
+    <div class="box"></div>
+
+    <!-- List Section -->
+    <div class="container">
+        <h2>My List</h2>
+        <ul id="itemList">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+        <button id="addItemBtn">Add List Item</button>
+        <button id="removeItemBtn">Remove Last Item</button>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container">
+        <h2>User Form</h2>
+        <input type="text" id="userInput" placeholder="Enter something">
+        <button id="showInputBtn">Show Input</button>
+    </div>
+
+    <!-- Image Section -->
+    <div class="container">
+        <h2>Change Image</h2>
+        <img id="image" src="https://media.geeksforgeeks.org/wp-content/uploads/20210908120846/DOM.png" alt="Placeholder Image">
+        <button id="changeImageBtn">Change Image</button>
+    </div>
+
+    <!-- Table Section -->
+    <div class="container">
+        <h2>Table Example</h2>
+        <table id="dataTable">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>25</td>
+            </tr>
+        </table>
+        <button id="addRowBtn">Add Row</button>
+    </div>
+
+    <!-- Link Section -->
+    <div class="container">
+        <h2>Modify Links</h2>
+        <a id="myLink" href="https://google.com" target="_blank">Google</a>
+        <button id="changeLinkBtn">Change Link</button>
+    </div>
+
+    <script>
+        
+        // Change text of heading
+        document.getElementById("changeTextBtn").addEventListener("click", function () {
+            document.getElementById("title").innerText = "Text Changed!";
+        });
+
+        // Add a new paragraph
+        document.getElementById("addElementBtn").addEventListener("click", function () {
+            let newPara = document.createElement("p");
+            newPara.innerText = "New paragraph added!";
+            document.body.appendChild(newPara);
+        });
+
+        // Remove a paragraph
+        document.getElementById("removeElementBtn").addEventListener("click", function () {
+            let para = document.querySelector(".text");
+            if (para) para.remove();
+        });
+
+        // Change box style
+        document.getElementById("changeStyleBtn").addEventListener("click", function () {
+            let box = document.querySelector(".box");
+            box.style.backgroundColor = "orange";
+            box.style.width = "150px";
+            box.style.height = "150px";
+        });
+
+        // Toggle class
+        document.getElementById("toggleClassBtn").addEventListener("click", function () {
+            document.getElementById("title").classList.toggle("highlight");
+        });
+
+        // Random box color
+        document.getElementById("randomColorBtn").addEventListener("click", function () {
+            let colors = ["red", "blue", "green", "purple", "pink", "yellow"];
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.querySelector(".box").style.backgroundColor = randomColor;
+        });
+
+        // Add item to list
+        document.getElementById("addItemBtn").addEventListener("click", function () {
+            let newItem = document.createElement("li");
+            newItem.innerText = "New Item";
+            document.getElementById("itemList").appendChild(newItem);
+        });
+
+        // Remove last item from list
+        document.getElementById("removeItemBtn").addEventListener("click", function () {
+            let list = document.getElementById("itemList");
+            if (list.children.length > 0) list.removeChild(list.lastElementChild);
+        });
+
+        // Show input value
+        document.getElementById("showInputBtn").addEventListener("click", function () {
+            let userInput = document.getElementById("userInput").value;
+            alert("You entered: " + userInput);
+        });
+
+        // Change image
+        document.getElementById("changeImageBtn").addEventListener("click", function () {
+            document.getElementById("image").src = "https://tse4.mm.bing.net/th?id=OIP.nZYWlibq4bRWOLPGTV3TuQHaIE&pid=Api&P=0&h=180";
+        });
+
+        // Add row to table
+        document.getElementById("addRowBtn").addEventListener("click", function () {
+            let table = document.getElementById("dataTable");
+            let newRow = table.insertRow();
+            let cell1 = newRow.insertCell(0);
+            let cell2 = newRow.insertCell(1);
+            cell1.innerText = "New Name";
+            cell2.innerText = Math.floor(Math.random() * 100); // Random age
+        });
+
+        // Change link
+        document.getElementById("changeLinkBtn").addEventListener("click", function () {
+            let link = document.getElementById("myLink");
+            link.href = "https://youtube.com";
+            link.innerText = "YouTube";
+        });
+
+    </script>
+
+</body>
+</html>
