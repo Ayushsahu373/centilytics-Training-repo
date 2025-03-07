@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery DOM Manipulation</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <style>
+    .box { width: 200px; height: 100px; background-color: lightblue; text-align: center; line-height: 100px; margin: 10px; }
+    .active { background-color: orange !important; }
+  </style>
+</head>
+<body>
+
+  <h1 id="myText">Original Text</h1>
+  <div id="myHtml">Original <b>HTML</b> Content</div>
+  <input type="text" id="myInput" value="Default Value">
+  
+  <button id="changeText">Change Text</button>
+  <button id="changeHtml">Change HTML</button>
+  <button id="changeValue">Change Input Value</button>
+  
+  <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+  <button id="addItem">Add Item</button>
+  <button id="removeItem">Remove Last Item</button>
+
+  <div id="myBox" class="box">Box</div>
+  <button id="changeColor">Change Color</button>
+  <button id="toggleClass">Toggle Class</button>
+
+  <script>
+    $(document).ready(function() {
+      // Change text
+      $('#changeText').click(function() {
+        $('#myText').text('New Text Updated!');
+      });
+
+      // Change HTML
+      $('#changeHtml').click(function() {
+        $('#myHtml').html('<i>Updated HTML Content</i>');
+      });
+
+      // Change input value
+      $('#changeValue').click(function() {
+        $('#myInput').val('Updated Input Value');
+      });
+
+      // Add list item
+      $('#addItem').click(function() {
+        $('#myList').append('<li>New List Item</li>');
+      });
+
+      // Remove last list item
+      $('#removeItem').click(function() {
+        $('#myList li:last').remove();
+      });
+
+      // Change box color
+      $('#changeColor').click(function() {
+        $('#myBox').css('background-color', 'red');
+      });
+
+      // Toggle active class
+      $('#toggleClass').click(function() {
+        $('#myBox').toggleClass('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
