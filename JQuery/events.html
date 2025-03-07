@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Events Example</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    #myButton {
+      padding: 10px 20px;
+      background-color: lightblue;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    #myButton:hover {
+      background-color: lightgreen;
+    }
+    #myButton:active {
+      background-color: lightcoral;
+    }
+    #myInput, #mySelect {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      display: block;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e3e3e3;
+      border: 1px solid #ccc;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>jQuery Events Handling</h1>
+
+  <button id="myButton">Click Me</button>
+  <input type="text" id="myInput" placeholder="Type something...">
+  <select id="mySelect">
+    <option value="Option 1">Option 1</option>
+    <option value="Option 2">Option 2</option>
+  </select>
+
+  <div id="output">
+    <p><strong>Event Details:</strong></p>
+    <p><span id="eventInfo">No event triggered yet.</span></p>
+  </div>
+
+  <script>
+    // 1. Click event on the button
+    $('#myButton').click(function() {
+      $('#eventInfo').text('Button clicked!');
+      $('#output').show();
+    });
+
+    // 2. Mouse hover event on the button (enter and leave)
+    $('#myButton').hover(
+      function() {
+        $(this).css('background-color', 'yellow');  // On mouse enter
+        $('#eventInfo').text('Mouse entered the button.');
+      },
+      function() {
+        $(this).css('background-color', 'lightblue');  // On mouse leave
+        $('#eventInfo').text('Mouse left the button.');
+      }
+    );
+
+    // 3. Keypress event in the input field
+    $('#myInput').keypress(function(event) {
+      $('#eventInfo').text('Key pressed: ' + event.key);
+      $('#output').show();
+    });
+
+    // 4. Change event on the select dropdown
+    $('#mySelect').change(function() {
+      $('#eventInfo').text('Selected value: ' + $(this).val());
+      $('#output').show();
+    });
+
+    // 5. Focus and Blur events for the input field
+    $('#myInput').focus(function() {
+      $(this).css('border', '2px solid blue');
+      $('#eventInfo').text('Input field focused.');
+      $('#output').show();
+    }).blur(function() {
+      $(this).css('border', '1px solid #ccc');
+      $('#eventInfo').text('Input field lost focus.');
+    });
+
+    // 6. Submit event (Prevent form submission and display info)
+    $('form').submit(function(event) {
+      event.preventDefault();  // Prevent actual form submission
+      $('#eventInfo').text('Form submitted!');
+      $('#output').show();
+    });
+  </script>
+
+</body>
+</html>
