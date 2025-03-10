@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Crash Course | Effects & Animate</title>
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<style>
+		body{
+			font-size: 17px;
+			font-family: arial;
+			background: #f4f4f4;
+			line-height: 1.5em;
+		}
+		header{
+			background:#333;
+			color:#fff;
+			padding:20px;
+			text-align: center;
+			border-bottom: 4px #000 solid;
+			margin-bottom: 10px;
+		}
+		#container{
+			width:90%;
+			margin:auto;
+			padding:10px;
+		}
+		#box{
+			background:#333;
+			color:#fff;
+			width:500px;
+			height:90px;
+			padding:40px;
+			text-align:center;
+		}
+		#box2{
+			background:red;
+			width:100px;
+			height:100px;
+			position:relative;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>jQuery Crash Course | Effects & Animate</h1>
+	</header>
+	<div id="container">
+		<!-- Basic Effects -->
+		<button id="btnShow">Show</button>
+		<button id="btnHide">Hide</button>
+		<button id="btnToggle">Toggle</button>
+
+		<hr>
+
+		<button id="btnFadeOut">Fade Out</button>
+		<button id="btnFadeIn">Fade In</button>
+		<button id="btnFadeTog">Fade Toggle</button>
+		<button id="btnFadeTo">Fade To 50%</button>
+
+		<hr>
+
+		<button id="btnSlideUp">Slide Up</button>
+		<button id="btnSlideDown">SlideDown</button>
+		<button id="btnSlideTog">Slide Toggle</button>
+
+		<hr>
+
+		<button id="btnStop">Stop Animation</button>
+		<button id="btnStopAll">Stop All Animations</button>
+		<button id="btnClearQueue">Clear Queue</button>
+
+		<hr>
+
+		<button id="moveLeft">Move Left</button>
+		<button id="moveRight">Move Right</button>
+		<button id="moveAround">Move Around</button>
+		<button id="chainAnimate">Chain Animation</button>
+
+		<div id="box"><h1>Hello World</h1></div>
+		<div id="box2"></div>
+	</div>
+
+	<script>
+		$(document).ready(function(){
+
+			$('#btnShow').click(function(){
+				$('#box').show(1000);
+			});
+
+			$('#btnHide').click(function(){
+				$('#box').hide(1000);
+			});
+
+			$('#btnToggle').click(function(){
+				$('#box').toggle(1000);
+			});
+
+			$('#btnFadeOut').click(function(){
+				$('#box').fadeOut(3000, function(){
+					$('#btnFadeOut').text('It\'s Gone');
+				});
+			});
+
+			$('#btnFadeIn').click(function(){
+				$('#box').fadeIn(3000);
+			});
+
+			$('#btnFadeTog').click(function(){
+				$('#box').fadeToggle(1000);
+			});
+
+			$('#btnFadeTo').click(function(){
+				$('#box').fadeTo(1000, 0.5);
+			});
+
+			$('#btnSlideDown').click(function(){
+				$('#box').slideDown(1000);
+			});
+
+			$('#btnSlideUp').click(function(){
+				$('#box').slideUp(1000);
+			});
+
+			$('#btnSlideTog').click(function(){
+				$('#box').slideToggle(1000);
+			});
+
+			$('#btnStop').click(function(){
+				$('#box2').stop();
+			});
+
+			$('#btnStopAll').click(function(){
+				$('#box2').stop(true, true);
+			});
+
+			$('#btnClearQueue').click(function(){
+				$('#box2').clearQueue();
+			});
+
+			$('#moveRight').click(function(){
+				$('#box2').animate({
+					left: 500,
+					height: '300px',
+					width:'300px',
+					opacity: '0.5'
+				}, 1000);
+			});
+
+			$('#moveLeft').click(function(){
+				$('#box2').animate({
+					left: 0,
+					height: '100px',
+					width: '100px',
+					opacity:'1'
+				}, 1000);
+			});
+
+			$('#moveAround').click(function(){
+				var box = $('#box2');
+				box.animate({ left: 300 });
+				box.animate({ top: 300 });
+				box.animate({ left: 0 });
+				box.animate({ top: 0 });
+			});
+
+			$('#chainAnimate').click(function(){
+				$('#box2')
+				.animate({ left: 200 }, 500)
+				.animate({ top: 200 }, 500)
+				.animate({ width: '150px', height: '150px' }, 500)
+				.animate({ left: 0, top: 0 }, 500)
+				.animate({ width: '100px', height: '100px' }, 500);
+			});
+		});
+	</script>
+</body>
+</html>
