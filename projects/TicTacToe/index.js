@@ -1,80 +1,47 @@
-let currentPlayer = "X";
-let gameBoard = ["", "", "", "", "", "", "", "", ""];
-let gameActive = true;
+let currentPlayer = "X",
+ gameBoard = Array(9).fill(""),
+  gameActive = true;
 
 const winConditions = [
-    [0, 1, 2], // Top row
-    [3, 4, 5], // Middle row
-    [6, 7, 8], // Bottom row
-    [0, 3, 6], // Left column
-    [1, 4, 7], // Middle column
-    [2, 5, 8], // Right column
-    [0, 4, 8], // Diagonal from top-left
-    [2, 4, 6]  // Diagonal from top-right
+    [0, 1, 2], [3, 4, 5], [6, 7, 8],
+    [0, 3, 6], [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
 ];
 
+const buttons = document.querySelectorAll(".button"), 
+resetBtn = document.getElementById("resetBtn");
 
-const buttons = document.querySelectorAll(".button");
-const resetBtn = document.getElementById("resetBtn");
-
-function handleClick(event) {
-    const button = event.target;
-    const index = parseInt(button.id.replace("one", "0")
-                                  .replace("two", "1")
-                                  .replace("three", "2")
-                                  .replace("four", "3")
-                                  .replace("five", "4")
-                                  .replace("six", "5")
-                                  .replace("seven", "6")
-                                  .replace("eight", "7")
-                                  .replace("nine", "8"));
-
-    
-    if (gameBoard[index] === "" && gameActive) {
-        gameBoard[index] = currentPlayer;
-        button.innerText = currentPlayer;
-
-        
+function handleClick(e) {
+    const i = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"].indexOf(e.target.id);
+    if (gameBoard[i] === "" && gameActive) {
+        gameBoard[i] = currentPlayer;
+        e.target.innerText = currentPlayer;
         if (checkWin()) {
             setTimeout(() => alert(`🎉 Player ${currentPlayer} wins!`), 100);
             gameActive = false;
         } else if (gameBoard.every(cell => cell !== "")) {
             setTimeout(() => alert("It's a draw! 🤝"), 100);
             gameActive = false;
-        } else{
+        } else {
             currentPlayer = currentPlayer === "X" ? "O" : "X";
         }
     }
 }
 
 function checkWin() {
-    for (let condition of winConditions) {
-        const [a, b, c] = condition;
+    for (let [a, b, c] of winConditions) {
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-            highlightWinningCells(condition);
+            [a, b, c].forEach(i => buttons[i].style.backgroundColor = "#a4f9a4");
             return true;
         }
     }
     return false;
 }
 
-function highlightWinningCells(condition) {
-    condition.forEach(index => {
-        buttons[index].style.backgroundColor = "#a4f9a4"; 
-    });
-}
-
 function resetGame() {
-    gameBoard = ["", "", "", "", "", "", "", "", ""];
-    gameActive = true;
-    currentPlayer = "X";
-
-    buttons.forEach(button => {
-        button.innerText = "";
-        button.style.backgroundColor = "#fff"; 
-    });
+    gameBoard.fill(""), gameActive = true, currentPlayer = "X";
+    buttons.forEach(b => (b.innerText = "", b.style.backgroundColor = "#fff"));
 }
 
-buttons.forEach(button => button.addEventListener("click", handleClick));
-
+buttons.forEach(b => b.addEventListener("click", handleClick));
 resetBtn.addEventListener("click", resetGame);
