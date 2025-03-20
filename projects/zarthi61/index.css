@@ -139,7 +139,7 @@ body {
 #filter {
     background-color: white;
     border: 1px solid #ddd;
-    border-radius: 50%;
+    border-radius: 20%;
     width: 2.5rem;
     height: 2.5rem;
     display: flex;
