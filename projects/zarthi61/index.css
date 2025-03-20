@@ -25,6 +25,7 @@ body {
     border-bottom: 1px solid #ddd;
     position: sticky;
     top: 0;
+    margin: .5rem .5rem ;
 }
 
 .navbar img {
@@ -54,7 +55,7 @@ body {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -1.3rem;
+    bottom: -.8rem;
     width: 100%;
     height: 0.25rem;
     background-color: #FFB42A;
@@ -174,8 +175,8 @@ body {
     border: 1px solid #ddd;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 13rem;
-    width: 100%; /* Makes the card responsive */
-    max-width: 30rem; /* Prevents card from expanding too much */
+    width: 100%; 
+    max-width: 30rem; /
 }
 
 /* Card Grid */
@@ -188,7 +189,7 @@ body {
 }
 
 
-/* Responsive Design */
+/* responsive with width */
 @media (max-width: 1024px) {
     .cardgrid {
         grid-template-columns: repeat(2, 1fr); /* 2 cards on tablets */
@@ -213,7 +214,7 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Card Title */
+
 .card-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -221,7 +222,6 @@ body {
     color: #333;
 }
 
-/* Card Description */
 .card-description {
     font-size: 0.9rem;
     color: #666;
@@ -232,13 +232,11 @@ body {
     text-overflow: ellipsis;
 }
 
-/* Card Divider */
 .card-divider {
     border-top: 1px solid #e0e0e0;
     margin: 1rem 0;
 }
 
-/* Card Footer */
 .card-footer {
     display: flex;
     justify-content: space-between;
@@ -255,16 +253,29 @@ body {
     border: 1px solid #f5a623;
 }
 
+
+/* footer rignt */
+
+.footer-right{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.footer-right p{
+    margin-right: 1rem;
+}
+
 /* Price Section */
 .price {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #333;
 }
 
 .currency {
-    font-size: 1rem;
+    font-size: 1.4rem;
+    font-style: bold;
     color: #333;
     margin-right: 0.2rem;
 }
-
