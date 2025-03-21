@@ -279,3 +279,37 @@ body {
     color: #333;
     margin-right: 0.2rem;
 }
+
+
+.footer-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px 20px;
+    border-radius: 20px;
+    
+    margin: 1rem 2rem ;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-bar span {
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-btn:hover {
+    background-color: #555;
+}
