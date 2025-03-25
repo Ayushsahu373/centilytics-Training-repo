@@ -129,3 +129,20 @@ let filteredData = serviceData.filter(service => service.price > 100);
 filteredData.forEach(service => {
     console.log(service.service_name + " : " + service.price);
 });
+
+// reduce - Calculate total price of all services
+console.log("Total Price of All Services");
+let totalPrice = serviceData.reduce((acc, service) => acc + service.price, 0);
+console.log(totalPrice);
+
+
+// every - Check if all services are active
+console.log("Are all services active?");
+let allActive = serviceData.every(service => service.service_status === "Active");
+console.log(allActive ? "Yes, all services are active." : "No, some services are not active.");
+
+// find - Find the service with price 88
+console.log("Find service with price 88");
+let foundService = serviceData.find(service => service.price === 88);
+console.log(foundService ? foundService.service_name : "No service found with price 88");
+
