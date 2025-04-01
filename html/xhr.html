@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR Full Example</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { margin: 5px; padding: 10px; }
+        pre { background: #f4f4f4; padding: 10px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>XMLHttpRequest (XHR) Full Example</h1>
+    <button onclick="fetchData()">GET Data</button>
+    <button onclick="postData()">POST Data</button>
+    <button onclick="abortRequest()">Abort Request</button>
+    <button onclick="clearOutput()">Clear Output</button>
+    <pre id="output">Response will appear here...</pre>
+
+    <script>
+        let xhr;
+
+        function fetchData() {
+            xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        document.getElementById('output').textContent = JSON.stringify(JSON.parse(xhr.responseText), null, 2);
+                    } else {
+                        document.getElementById('output').textContent = `Error: ${xhr.statusText}`;
+                    }
+                }
+            };
+
+            xhr.onerror = function () {
+                document.getElementById('output').textContent = 'Request failed due to network error';
+            };
+
+            xhr.timeout = 5000;
+            xhr.ontimeout = function () {
+                document.getElementById('output').textContent = 'Request timed out';
+            };
+
+            xhr.send();
+        }
+
+        function postData() {
+            xhr = new XMLHttpRequest();
+            let data = JSON.stringify({ title: 'New Post', body: 'Content of the post', userId: 1 });
+            
+            xhr.open('POST', 'https://jsonplaceholder.typicode.com/posts', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 201) {
+                        document.getElementById('output').textContent = `Success: ${xhr.responseText}`;
+                    } else {
+                        document.getElementById('output').textContent = `Error: ${xhr.statusText}`;
+                    }
+                }
+            };
+
+            xhr.send(data);
+        }
+
+        function abortRequest() {
+            if (xhr) {
+                xhr.abort();
+                document.getElementById('output').textContent = 'Request aborted';
+            }
+        }
+
+        function clearOutput() {
+            document.getElementById('output').textContent = 'Response will appear here...';
+        }
+    </script>
+</body>
+</html>
