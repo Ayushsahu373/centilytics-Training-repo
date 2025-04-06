@@ -105,6 +105,7 @@ body {
     align-items: center;
     padding: 1rem 1rem;
     background-color: white;
+   
 }
 
 .middle-bar h1 {
@@ -170,6 +171,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     padding: 1rem 1.5rem;
+    position: relative; /* Keeps it inside stacking context */
+    z-index: 1;
 }
 
 /* Responsive with width */
@@ -205,10 +208,19 @@ body {
     background-color: white;
    
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-   
+    max-height: 50rem; 
+    overflow-y: auto;
     
 }
+.section-left::-webkit-scrollbar {
+    width: 0px;
+}
 
+
+.main-content{
+    position: relative;
+    min-height:400px;
+}
 /* Right Section */
 .section-right {
     flex: 0; /* Initially hidden */
@@ -413,3 +425,201 @@ body {
 #review {
     margin-left: 0.5rem;
 }
+
+
+
+/* filter container */
+.filter-options {
+    position: absolute;
+    top: 2rem;
+    right: 10px;
+    width: 300px;
+    display: none;
+    padding: 16px;
+    transition: opacity 0.3s ease-in-out;
+    color: white;
+    
+
+    
+    
+    /* background: rgba(0, 0, 0, 0.5);  */
+    z-index: 2; /* On top */
+}
+
+
+.filter-options h3 {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+    z-index:-1;
+}
+
+.filter-options label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
+
+.filter-options input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+
+
+.filter-container {
+    position: inherit;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 10px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: .5rem;
+    transition: opacity 0.3s ease-in-out;
+    border: solid rgb(195, 193, 193) 2px;
+    max-height: 36rem; /* Overall max height */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* Scrollable area */
+.filter-content {
+    max-height: 30rem; /* Set a height for scrolling */
+    overflow-y: auto;
+   
+}
+
+/* Custom scrollbar styling (optional) */
+.filter-content::-webkit-scrollbar {
+    width: 0px;
+}
+
+.filter-content::-webkit-scrollbar-thumb {
+    
+    width: 0px;
+}
+
+.filter-content::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.filter-header .icons img {
+   height: 1rem;
+}
+.icons button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 5px;
+    
+}
+.section-title{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    
+}
+
+.filter-section {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.filter-section-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filter-section .search-bar{
+    width: 100%;
+}
+.search-input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: black;
+}
+
+.nested {
+    margin-left: 20px;
+}
+
+/* Show filter container on hover */
+.middle-last {
+    position: relative;
+}
+
+.middle-last:hover .filter-options {
+    display: block;
+}
+
+
+.sort-by {
+    width: 250px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+.sort-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding: .4rem;
+    cursor: pointer;
+}
+
+
+.sort-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: white;
+    overflow: hidden;
+}
+
+.sort-list li {
+    padding: 10px;
+    cursor: pointer;
+   
+}
+
+.sort-list :hover {
+    font-weight: bold;
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 95%;
+}
+
+
