@@ -118,6 +118,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    justify-content: space-between;
 }
 
 .search-bar {
@@ -215,12 +216,24 @@ body {
 .section-left::-webkit-scrollbar {
     width: 0px;
 }
+.section-left::-webkit-scrollbar-thumb {
+    
+    width: 0px;
+}
+
+.section-left::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
 
 
 .main-content{
     position: relative;
     min-height:400px;
 }
+.main-content::-webkit-scrollbar {
+    width: 0px;
+}
+
 /* Right Section */
 .section-right {
     flex: 0; /* Initially hidden */
@@ -355,6 +368,13 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
    height: 100%;
 }
+.right-bar .right-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+
+}
 
 .right-bar span {
     display: flex;
@@ -405,6 +425,11 @@ body {
     flex: 2;
     width: 40%;
     overflow: visible;
+}
+.middle-section.partitioned .section-left .middle-bar{
+    flex-direction: column;
+    align-items: self-start;
+    
 }
 
 /* Reviews styling for card */

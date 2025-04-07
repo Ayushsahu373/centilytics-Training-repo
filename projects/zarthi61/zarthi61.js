@@ -3,9 +3,9 @@ async function fetchData() {
         const response = await fetch("ServiceDATA.json");
         const services = await response.json();
         generateCards(services);
-        initStaticFilters(services); // Initialize filter events for static filter UI
+        initStaticFilters(services); 
         setupSearch(services);
-        generateFilters(services);  // Populate filter options dynamically
+        applyStaticFilters(services); // Apply filters on initial load       
     } catch (error) {
         console.error("Error fetching data:", error);
     }
@@ -31,31 +31,51 @@ function initStaticFilters(services) {
 
 // Filter logic using static filters
 function applyStaticFilters(services) {
-    // Get selected Service Types (from static section)
-    const selectedServiceTypes = [...document.querySelectorAll(
-        ".filter-section:nth-of-type(1) input[type='checkbox']:checked"
-    )].map(cb => cb.parentElement.textContent.trim());
+    // Utility function to trim and remove duplicates
+    const getCheckedLabels = (selector) => {
+        const values = [...document.querySelectorAll(selector)]
+            .map(cb => cb.parentElement.textContent.trim());
+        return [...new Set(values)]; // remove duplicates
+    };
 
-    // Get selected Practices (from static section)
-    const selectedPractices = [...document.querySelectorAll(
-        ".filter-section:nth-of-type(2) input[type='checkbox']:checked"
-    )].map(cb => cb.parentElement.textContent.trim());
+    // Get selected filters
+    const selectedServiceTypes = getCheckedLabels(
+        ".filter-section[data-filter='service-type'] input[type='checkbox']:checked"
+      );
+      const selectedPractices = getCheckedLabels(
+        ".filter-section[data-filter='practice'] input[type='checkbox']:checked"
+      );
+      
+
+    // Debug: Log what is selected
+    console.log("✅ Selected Service Types:", selectedServiceTypes);
+    console.log("✅ Selected Practices:", selectedPractices);
 
     const filteredServices = services.filter(service => {
-        const matchesServiceType = selectedServiceTypes.length === 0 || 
-            selectedServiceTypes.includes(service.service_type);
+        const serviceType = service.service_type.trim();
+        const practiceName = service.practice_name.trim();
 
-        const matchesPractice = selectedPractices.length === 0 || 
-            selectedPractices.includes(service.practice_name);
+        const matchesServiceType = selectedServiceTypes.length === 0 ||
+            selectedServiceTypes.includes(serviceType);
+
+        const matchesPractice = selectedPractices.length === 0 ||
+            selectedPractices.includes(practiceName);
+
+        if (matchesServiceType && matchesPractice) {
+            console.log("✔️ Matched:", service.service_name);
+        }
 
         return matchesServiceType && matchesPractice;
     });
 
-    // If no filters are applied (both arrays are empty), show all cards
+    // Debug: Log filtered results
+    console.log("🎯 Filtered Services:", filteredServices);
+
+    // Render cards
     if (selectedServiceTypes.length === 0 && selectedPractices.length === 0) {
-        generateCards(services); // Show all cards if no filter is applied
+        generateCards(services); // No filters applied, show all
     } else {
-        generateCards(filteredServices); // Show filtered cards
+        generateCards(filteredServices); // Show filtered
     }
 }
 
@@ -108,11 +128,14 @@ function generateCards(data) {
     
         const contentHTML = `
             <div class="right-bar">
-                <span>Micro Services of <h1>${name}</h1> <button class="close-section">Close</button></span>
+                <div class="right-bar-header">
+                <span>Micro Services of <h1>${name}</h1>
+                 <button class="close-section">Close</button></span>
+                </div> 
                 <div class="middle-last">
                     <div class="search-bar">
                         <img src="../zarthi61/assets/search-icon.png" alt="Search">
-                        <input type="text" id="search-bar-right" placeholder="Search by Service">
+                        <input type="text" id="search-bar" placeholder="Search by Service">
                     </div>
                     <button id="filter">
                         <img src="../zarthi61/assets/filter-img.png" alt="Filter">

@@ -620,6 +620,16 @@
         "id": "67d923e9d2dc988a6cfbf8b4"
     },
     {
+        "practice_name": "fronted dev",
+        "practice_status": "internship",
+        "price": 1524,
+        "service_description": "Data analytics service aims to extract meaningful insights from raw data to inform decision-making, improve business outcomes, and optimize processes. Data analysis helps check overall organization productivity, and employee performance and gives a holistic view of the complete organization.",
+        "service_name": "Data Analytics ",
+        "service_status": "Active",
+        "service_type": "Concierge Service",
+        "id": "67d923e9d2dc988a6cfbf8b4"
+    },
+    {
         "practice_name": "Cloud Ops",
         "practice_status": "Internal & External",
         "price": 1700,
