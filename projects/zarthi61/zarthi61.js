@@ -1,3 +1,5 @@
+
+
 async function fetchData() {
     try {
         const response = await fetch("ServiceDATA.json");
@@ -77,6 +79,12 @@ function applyStaticFilters(services) {
     } else {
         generateCards(filteredServices); // Show filtered
     }
+    const leftSectionMiddleBarHeader = document.querySelector("#services-of");
+    if(selectedServiceTypes.length === 0 && selectedPractices.length === 0) {
+        leftSectionMiddleBarHeader.innerHTML = `<h1>All Services</h1>`;
+    } else if(selectedPractices.length != 0) {
+    leftSectionMiddleBarHeader.innerHTML = `<span >Services of <h1>${selectedPractices.join(", ")}</h1></span>`;
+    }
 }
 
 
@@ -116,10 +124,11 @@ function generateCards(data) {
     function updateRightSection(card) {
         const middleSection = document.querySelector(".middle-section");
         const rightSection = document.querySelector(".section-right");
-    
+       
         // Show right section and switch left section to single column
         rightSection.classList.add("active");
         middleSection.classList.add("partitioned");
+
     
         // Update content
         const name = card.getAttribute("data-name");
@@ -129,8 +138,8 @@ function generateCards(data) {
         const contentHTML = `
             <div class="right-bar">
                 <div class="right-bar-header">
-                <span>Micro Services of <h1>${name}</h1>
-                 <button class="close-section">Close</button></span>
+                <span>Micro Services of <h1>${name}</h1></span>
+                 <button class="close-section"><img src="assets/cross.png" alt="cross"></button>
                 </div> 
                 <div class="middle-last">
                     <div class="search-bar">

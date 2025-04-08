@@ -128,9 +128,12 @@ body {
     border: 1px solid #ddd;
     border-radius: .5rem;
     padding: 0.5rem 1rem;
-    width: 20rem;
+    width: 25rem;
 }
 
+.right-bar .search-bar{
+    width: 55rem;
+}
 .search-bar img {
     width: 1rem;
     margin-right: 0.5rem;
@@ -225,6 +228,12 @@ body {
     background: #999;
 }
 
+#services-of span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
 
 .main-content{
     position: relative;
@@ -371,7 +380,7 @@ body {
 .right-bar .right-bar-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-end;
     padding: 1rem 0;
 
 }
@@ -387,6 +396,23 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     color: #333;
+}
+
+.close-section{
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.close-section img {
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 .service-details {
