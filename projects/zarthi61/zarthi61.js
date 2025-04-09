@@ -4,10 +4,12 @@ async function fetchData() {
     try {
         const response = await fetch("ServiceDATA.json");
         const services = await response.json();
-        generateCards(services);
-        initStaticFilters(services); 
-        setupSearch(services);
-        applyStaticFilters(services); // Apply filters on initial load       
+        generateCards(services);  // Generate cards on initial load
+        initStaticFilters(services);   // Initialize filter events for static filter UI
+        setupSearch(services); // Initialize search functionality
+        applyStaticFilters(services); // apply filters on load
+        setupSorting(services); //sorting function
+      
     } catch (error) {
         console.error("Error fetching data:", error);
     }
@@ -234,4 +236,47 @@ function setupSearch(_services) {
         });
     });
 }
+
+
+    //sorting functionality
+    function setupSorting(services) {
+        const sortOptions = document.querySelectorAll(".sort-list li");
+    
+        sortOptions.forEach(option => {
+            option.addEventListener("click", () => {
+                const id = option.id;
+                let sortedServices = [...services];
+    
+                // Sort logic
+                switch (id) {
+                    case "sort-name-asc":
+                        sortedServices.sort((a, b) =>
+                            a.service_name.localeCompare(b.service_name));
+                        break;
+                    case "sort-name-desc":
+                        sortedServices.sort((a, b) =>
+                            b.service_name.localeCompare(a.service_name));
+                        break;
+                    case "sort-price-asc":
+                        sortedServices.sort((a, b) =>
+                            parseFloat(a.price) - parseFloat(b.price));
+                        break;
+                    case "sort-price-desc":
+                        sortedServices.sort((a, b) =>
+                            parseFloat(b.price) - parseFloat(a.price));
+                        break;
+                }
+    
+                // Apply visual selection
+                sortOptions.forEach(opt => opt.classList.remove("selected"));
+                option.classList.add("selected");
+    
+                // Regenerate cards
+                generateCards(sortedServices);
+            });
+        });
+    }
+    
+    
+
 window.onload = fetchData;

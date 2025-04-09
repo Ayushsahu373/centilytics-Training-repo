@@ -210,7 +210,7 @@ body {
     transition: flex 0.3s ease;
     padding: 1rem;
     background-color: white;
-   
+   height: 92vh;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-height: 50rem; 
     overflow-y: auto;
@@ -237,7 +237,7 @@ body {
 
 .main-content{
     position: relative;
-    min-height:400px;
+    min-height: 72vh; 
 }
 .main-content::-webkit-scrollbar {
     width: 0px;
@@ -345,7 +345,7 @@ body {
     background-color: #f9f9f9;
     padding: 10px 20px;
     border-radius: 20px;
-    margin: 1rem 2rem;
+    /* margin: 1rem 2rem; */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -658,19 +658,22 @@ input[type="checkbox"] {
     background: white;
     overflow: hidden;
 }
-
 .sort-list li {
     padding: 10px;
     cursor: pointer;
-   
+    border-radius: 6px;
+    margin-bottom: 5px;
+    transition: background 0.2s ease;
 }
 
-.sort-list :hover {
-    font-weight: bold;
+.sort-list li:hover {
     background: #f3f3f3;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 95%;
+}
+
+.sort-list li.selected {
+    font-weight: bold;
+    background-color: #e0e0e0;
+    border: 1px solid #aaa;
 }
 
 
