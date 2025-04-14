@@ -83,7 +83,7 @@ function applyStaticFilters(services) {
     }
     const leftSectionMiddleBarHeader = document.querySelector("#services-of");
     if(selectedServiceTypes.length === 0 && selectedPractices.length === 0) {
-        leftSectionMiddleBarHeader.innerHTML = `<h1>All Services</h1>`;
+        leftSectionMiddleBarHeader.innerHTML = `<h1 style>All Services</h1>`;
     } else if(selectedPractices.length != 0) {
     leftSectionMiddleBarHeader.innerHTML = `<span >Services of <h1>${selectedPractices.join(", ")}</h1></span>`;
     }
@@ -123,6 +123,8 @@ function generateCards(data) {
     });
 
 
+    // right section cards
+
     function updateRightSection(card) {
         const middleSection = document.querySelector(".middle-section");
         const rightSection = document.querySelector(".section-right");
@@ -134,8 +136,30 @@ function generateCards(data) {
     
         // Update content
         const name = card.getAttribute("data-name");
-        const description = card.getAttribute("data-description");
-        const price = card.getAttribute("data-price");
+        let microServicesHTML = "";
+
+              for (let i = 0; i < 10; i++) {
+                  microServicesHTML += `
+                    <div class="service-card">
+                    
+                           <div class="service-info">
+                               <h3>UX Wireframe for Web Applications</h3>
+                               <p>In this Microservice, you can easily modify the configuration of any existing AWS EC2. In this Microservice, you can easily modify the configuration of any existing.</p>
+                                <div class="service-stats">
+                                  <span><img src="../zarthi61/assets/rocket.svg" alt="rocket" id="rocket"> 100+ Successful Deliveries</span>
+                                  <span>|</span>
+                                  <span>12 Reviews <img src="../zarthi61/assets/skip.svg" alt="review"></span>
+                                </div>
+                            </div>
+                                <div class="service-action">
+                                 <div class="price">₹ 389 <span>/ wireframe</span></div>
+                                 <div class="sla">Avg. SLA 12 Hr</div>
+                                 <button class="request-btn">Request Service</button>
+                                </div>
+                        </div>
+                     `;
+                    }
+        
     
         const contentHTML = `
             <div class="right-bar">
@@ -153,17 +177,13 @@ function generateCards(data) {
                     </button>
                 </div>
             
-            <div class="service-details">
-                <h3>Description:</h3>
-                <p>${description}</p>
-                <h3>Price:</h3>
-                <span class="price">₹${price}</span>
-            </div>
+            <div class="micro-services"></div>
            
             </div>
         `;
-    
+       
         rightSection.innerHTML = contentHTML;
+        document.querySelector(".micro-services").innerHTML = microServicesHTML;
     
         // Close button event
         document.querySelector(".close-section").addEventListener("click", function () {
@@ -247,7 +267,6 @@ function setupSearch(_services) {
                 const id = option.id;
                 let sortedServices = [...services];
     
-                // Sort logic
                 switch (id) {
                     case "sort-name-asc":
                         sortedServices.sort((a, b) =>
@@ -267,11 +286,10 @@ function setupSearch(_services) {
                         break;
                 }
     
-                // Apply visual selection
                 sortOptions.forEach(opt => opt.classList.remove("selected"));
                 option.classList.add("selected");
     
-                // Regenerate cards
+               
                 generateCards(sortedServices);
             });
         });
